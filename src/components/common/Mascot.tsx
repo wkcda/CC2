@@ -1,99 +1,122 @@
-// 原創情侶熊公仔(白熊 + 啡熊),全身企姿。手繪 SVG、放大唔花、離線可用。
-// 圓滾身體 + 橢圓腮紅 + 一字嘴,可愛日系風。
+// 情侶熊吉祥物(白熊 + 啡熊)— 按使用者自繪角色,用 SVG 重畫。
+// 白熊:啡耳、粉紅圓腮、ω 嘴、頸前小蝴蝶結。
+// 啡熊:奶茶色、橙黃圓腮、ω 嘴、圓肚仔。
+// 向量繪製,放大唔花、離線可用。
 
 interface Props {
   size?: number;
   className?: string;
 }
 
-// 白熊:頭頂有啡色小揪揪、粉紅腮
-export function BearWhite({ size = 90, className }: Props) {
+const OUT = '#5b3a2e'; // 深啡描邊
+
+// 白熊
+export function BearWhite({ size = 96, className }: Props) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 120 150"
+      viewBox="0 0 150 180"
       className={className}
       aria-hidden="true"
     >
-      <ellipse cx="60" cy="142" rx="30" ry="5" fill="#000" opacity="0.05" />
+      <ellipse cx="75" cy="172" rx="34" ry="5" fill="#000" opacity="0.05" />
+      {/* 腳 */}
+      <ellipse cx="58" cy="162" rx="11" ry="8" fill="#fff" stroke={OUT} strokeWidth="4" />
+      <ellipse cx="92" cy="162" rx="11" ry="8" fill="#fff" stroke={OUT} strokeWidth="4" />
       {/* 身體 */}
       <path
-        d="M30 96c0-14 13-22 30-22s30 8 30 22v8c0 18-13 28-30 28S30 122 30 104z"
+        d="M40 120c0-19 16-30 35-30s35 11 35 30v6c0 22-16 34-35 34s-35-12-35-34z"
         fill="#fff"
-        stroke="#4a423b"
-        strokeWidth="3"
+        stroke={OUT}
+        strokeWidth="4"
       />
-      {/* 手仔 */}
-      <ellipse cx="31" cy="108" rx="8" ry="10" fill="#fff" stroke="#4a423b" strokeWidth="3" />
-      <ellipse cx="89" cy="108" rx="8" ry="10" fill="#fff" stroke="#4a423b" strokeWidth="3" />
-      {/* 腳 */}
-      <ellipse cx="47" cy="135" rx="8" ry="5" fill="#fff" stroke="#4a423b" strokeWidth="3" />
-      <ellipse cx="73" cy="135" rx="8" ry="5" fill="#fff" stroke="#4a423b" strokeWidth="3" />
-      {/* 頭頂小揪揪 */}
-      <circle cx="60" cy="16" r="7" fill="#7a5a44" />
+      {/* 手 */}
+      <path d="M42 116c-8 2-13 9-12 19" fill="none" stroke={OUT} strokeWidth="4" strokeLinecap="round" />
+      <path d="M108 116c8 2 13 9 12 19" fill="none" stroke={OUT} strokeWidth="4" strokeLinecap="round" />
+      {/* 蝴蝶結 */}
+      <path d="M75 116l-9 8h18z" fill={OUT} />
+      <circle cx="75" cy="116" r="4" fill={OUT} />
       {/* 耳 */}
-      <circle cx="33" cy="34" r="13" fill="#fff" stroke="#4a423b" strokeWidth="3" />
-      <circle cx="87" cy="34" r="13" fill="#fff" stroke="#4a423b" strokeWidth="3" />
-      <circle cx="33" cy="34" r="6.5" fill="#7a5a44" opacity="0.85" />
-      <circle cx="87" cy="34" r="6.5" fill="#7a5a44" opacity="0.85" />
+      <circle cx="38" cy="40" r="17" fill="#5b3a2e" />
+      <circle cx="112" cy="40" r="17" fill="#5b3a2e" />
       {/* 頭 */}
-      <ellipse cx="60" cy="52" rx="38" ry="34" fill="#fff" stroke="#4a423b" strokeWidth="3" />
-      {/* 腮紅 */}
-      <ellipse cx="33" cy="58" rx="9" ry="6.5" fill="#f4aebf" opacity="0.85" />
-      <ellipse cx="87" cy="58" rx="9" ry="6.5" fill="#f4aebf" opacity="0.85" />
+      <path
+        d="M75 16c-33 0-53 22-53 50 0 26 22 42 53 42s53-16 53-42c0-28-20-50-53-50z"
+        fill="#fff"
+        stroke={OUT}
+        strokeWidth="4"
+      />
+      {/* 腮 */}
+      <ellipse cx="42" cy="78" rx="13" ry="10" fill="#f3a8bb" opacity="0.85" />
+      <ellipse cx="108" cy="78" rx="13" ry="10" fill="#f3a8bb" opacity="0.85" />
       {/* 眼 */}
-      <ellipse cx="46" cy="50" rx="4.4" ry="5.2" fill="#4a423b" />
-      <ellipse cx="74" cy="50" rx="4.4" ry="5.2" fill="#4a423b" />
-      <circle cx="47.6" cy="48" r="1.5" fill="#fff" />
-      <circle cx="75.6" cy="48" r="1.5" fill="#fff" />
-      {/* 一字嘴 */}
-      <path d="M54 60h12" fill="none" stroke="#4a423b" strokeWidth="2.6" strokeLinecap="round" />
+      <ellipse cx="55" cy="66" rx="5.5" ry="7" fill={OUT} />
+      <ellipse cx="95" cy="66" rx="5.5" ry="7" fill={OUT} />
+      {/* ω 嘴 */}
+      <path
+        d="M68 72q3.5 5 7 0q3.5 5 7 0"
+        fill="none"
+        stroke={OUT}
+        strokeWidth="2.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
 
-// 啡熊:奶茶色、橙黃腮、圓耳
-export function BearBrown({ size = 90, className }: Props) {
+// 啡熊
+export function BearBrown({ size = 96, className }: Props) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 120 150"
+      viewBox="0 0 150 180"
       className={className}
       aria-hidden="true"
     >
-      <ellipse cx="60" cy="142" rx="30" ry="5" fill="#000" opacity="0.05" />
+      <ellipse cx="75" cy="172" rx="34" ry="5" fill="#000" opacity="0.05" />
+      <ellipse cx="58" cy="162" rx="11" ry="8" fill="#cf9b73" stroke={OUT} strokeWidth="4" />
+      <ellipse cx="92" cy="162" rx="11" ry="8" fill="#cf9b73" stroke={OUT} strokeWidth="4" />
       <path
-        d="M30 96c0-14 13-22 30-22s30 8 30 22v8c0 18-13 28-30 28S30 122 30 104z"
-        fill="#c79a6d"
-        stroke="#6b513a"
-        strokeWidth="3"
+        d="M40 120c0-19 16-30 35-30s35 11 35 30v6c0 22-16 34-35 34s-35-12-35-34z"
+        fill="#cf9b73"
+        stroke={OUT}
+        strokeWidth="4"
       />
-      <ellipse cx="31" cy="108" rx="8" ry="10" fill="#c79a6d" stroke="#6b513a" strokeWidth="3" />
-      <ellipse cx="89" cy="108" rx="8" ry="10" fill="#c79a6d" stroke="#6b513a" strokeWidth="3" />
-      <ellipse cx="47" cy="135" rx="8" ry="5" fill="#c79a6d" stroke="#6b513a" strokeWidth="3" />
-      <ellipse cx="73" cy="135" rx="8" ry="5" fill="#c79a6d" stroke="#6b513a" strokeWidth="3" />
+      <path d="M42 116c-8 2-13 9-12 19" fill="none" stroke={OUT} strokeWidth="4" strokeLinecap="round" />
+      <path d="M108 116c8 2 13 9 12 19" fill="none" stroke={OUT} strokeWidth="4" strokeLinecap="round" />
       {/* 耳 */}
-      <circle cx="33" cy="32" r="14" fill="#c79a6d" stroke="#6b513a" strokeWidth="3" />
-      <circle cx="87" cy="32" r="14" fill="#c79a6d" stroke="#6b513a" strokeWidth="3" />
-      <circle cx="33" cy="32" r="7" fill="#a87c55" />
-      <circle cx="87" cy="32" r="7" fill="#a87c55" />
+      <circle cx="38" cy="40" r="18" fill="#cf9b73" stroke={OUT} strokeWidth="4" />
+      <circle cx="112" cy="40" r="18" fill="#cf9b73" stroke={OUT} strokeWidth="4" />
+      <circle cx="38" cy="40" r="8" fill="#5b3a2e" opacity="0.55" />
+      <circle cx="112" cy="40" r="8" fill="#5b3a2e" opacity="0.55" />
       {/* 頭 */}
-      <ellipse cx="60" cy="52" rx="38" ry="34" fill="#c79a6d" stroke="#6b513a" strokeWidth="3" />
+      <path
+        d="M75 16c-33 0-53 22-53 50 0 26 22 42 53 42s53-16 53-42c0-28-20-50-53-50z"
+        fill="#cf9b73"
+        stroke={OUT}
+        strokeWidth="4"
+      />
       {/* 橙黃腮 */}
-      <ellipse cx="33" cy="58" rx="9" ry="6.5" fill="#eaa95f" opacity="0.7" />
-      <ellipse cx="87" cy="58" rx="9" ry="6.5" fill="#eaa95f" opacity="0.7" />
-      <ellipse cx="46" cy="50" rx="4.4" ry="5.2" fill="#4a3a2c" />
-      <ellipse cx="74" cy="50" rx="4.4" ry="5.2" fill="#4a3a2c" />
-      <circle cx="47.6" cy="48" r="1.5" fill="#fff" />
-      <circle cx="75.6" cy="48" r="1.5" fill="#fff" />
-      <path d="M54 60h12" fill="none" stroke="#4a3a2c" strokeWidth="2.6" strokeLinecap="round" />
+      <ellipse cx="42" cy="80" rx="13" ry="10" fill="#f1c170" opacity="0.85" />
+      <ellipse cx="108" cy="80" rx="13" ry="10" fill="#f1c170" opacity="0.85" />
+      <ellipse cx="55" cy="66" rx="5.5" ry="7" fill={OUT} />
+      <ellipse cx="95" cy="66" rx="5.5" ry="7" fill={OUT} />
+      <path
+        d="M68 72q3.5 5 7 0q3.5 5 7 0"
+        fill="none"
+        stroke={OUT}
+        strokeWidth="2.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
 
-// 一對攬住嘅情侶熊
+// 一對情侶熊並排
 export function BearCouple({ size = 150, className }: Props) {
   return (
     <div
