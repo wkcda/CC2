@@ -812,27 +812,142 @@ button {
   75% { transform: translateX(8px); }
 }
 
-/* ── RWD ── */
+/* ── RWD:平板 ── */
 @media (max-width: 900px) {
   .map-page {
     grid-template-columns: 1fr;
   }
+}
+
+/* ── RWD:手機 ── */
+@media (max-width: 768px) {
+  /* 防止任何元素撐爆螢幕造成左右走位 */
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
   .app-shell {
     flex-direction: column;
   }
+
+  /* 側邊欄變頂部 bar:品牌一行 + 導覽橫向可滑動 */
   .sidenav {
     width: 100%;
     height: auto;
-    position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 14px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .brand {
+    margin-bottom: 0;
   }
   .sidenav nav {
     flex-direction: row;
-    flex-wrap: wrap;
+    gap: 6px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    /* 收起捲動列 */
+    scrollbar-width: none;
+  }
+  .sidenav nav::-webkit-scrollbar {
+    display: none;
+  }
+  .navlink {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 8px 12px;
   }
   .sidenav-foot {
     display: none;
+  }
+
+  /* 主內容區收窄 padding */
+  .app-main {
+    padding: 16px 14px;
+  }
+  .page {
+    max-width: 100%;
+  }
+
+  /* 地圖頁:標題列、地圖、widgets 全部直放 */
+  .map-page {
+    gap: 16px;
+  }
+  .map-wrap {
+    height: 60vh;
+    min-height: 360px;
+  }
+
+  /* 頁首:標題同切換掣分兩行,唔逼到溢出 */
+  .page-head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  /* 表單兩欄改一欄,避免細螢幕逼到爆 */
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* 回憶卡單欄 */
+  .memory-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* 紀念日數字縮細 */
+  .anniv-hero {
+    padding: 24px 16px;
+  }
+  .anniv-hero-days {
+    font-size: 48px;
+  }
+
+  /* 設定卡 / widget 唔好有固定闊度溢出 */
+  .settings-card,
+  .widget {
+    max-width: 100%;
+  }
+
+  /* Modal 貼近全寬,內距收細 */
+  .modal-overlay {
+    padding: 12px;
+    align-items: flex-end;
+  }
+  .modal-card {
+    max-height: 92vh;
+  }
+
+  /* 鎖屏卡自適應闊度 */
+  .lock-card {
+    width: 100%;
+    max-width: 340px;
+    padding: 28px 22px;
+  }
+
+  /* 設定頁:橫向組合容許換行,輸入框自適應 */
+  .row {
+    flex-wrap: wrap;
+  }
+  .row input {
+    flex: 1;
+    min-width: 0;
+  }
+  .row-between {
+    flex-wrap: wrap;
+  }
+
+  /* 地圖提示泡泡唔好超出螢幕 */
+  .map-add-hint {
+    max-width: calc(100% - 28px);
+    text-align: center;
+    font-size: 12px;
   }
 }
