@@ -8,8 +8,8 @@ const ADMIN_FLAG = 'couple-map:admin';
 export const DEFAULT_SETTINGS: CoupleSettings = {
   partnerA: '我',
   partnerB: '你',
-  anniversaryDate: '2025-12-23',
-  unlockCode: '1223',
+  anniversaryDate: '2022-02-22',
+  unlockCode: '0222',
   adminPassword: 'love',
   loginCover: {
     title: '輸入紀念日',
