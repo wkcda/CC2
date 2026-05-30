@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useApp } from '../../AppContext';
+import { BearWhite, BearBrown } from '../common/Mascot';
 
 const links = [
   { to: '/map', label: '地圖', icon: '🗺️' },
@@ -16,7 +17,10 @@ export function SideNav() {
   return (
     <aside className="sidenav">
       <div className="brand">
-        <div className="brand-heart">♥</div>
+        <div className="brand-heart">
+          <BearWhite size={26} className="bear-lean-r" />
+          <BearBrown size={26} className="bear-lean-l" />
+        </div>
         <div>
           <div className="brand-title">{settings.homeCover.title}</div>
           <div className="brand-sub muted small">{settings.homeCover.subtitle}</div>

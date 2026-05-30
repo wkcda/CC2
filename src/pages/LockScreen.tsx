@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useApp } from '../AppContext';
 import { setUnlocked } from '../data/settings';
+import { BearCouple } from '../components/common/Mascot';
 
 interface Props {
   onUnlock: () => void;
@@ -35,7 +36,7 @@ export function LockScreen({ onUnlock }: Props) {
   return (
     <div className="lock-screen">
       <div className="lock-card">
-        <div className="lock-heart">♥</div>
+        <BearCouple size={132} className="bear-bob lock-mascot" />
         <h1 className="lock-title">{settings.loginCover.title}</h1>
         <p className="muted small lock-sub">{settings.loginCover.subtitle}</p>
 
