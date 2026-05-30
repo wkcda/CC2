@@ -28,9 +28,18 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
   background: var(--cream);
+  overflow-x: hidden;
+  max-width: 100%;
+}
+/* 全域防溢出:任何 input/textarea 都唔可以撐爆容器 */
+input,
+textarea,
+select {
+  max-width: 100%;
 }
 
 h1,
@@ -579,6 +588,12 @@ button {
   padding: 9px 11px;
   background: var(--cream);
   outline: none;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.field textarea {
+  resize: vertical;
 }
 .field input:focus,
 .field textarea:focus {
@@ -589,6 +604,10 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+  min-width: 0;
+}
+.field-row .field {
+  min-width: 0;
 }
 .checkbox {
   display: flex;
