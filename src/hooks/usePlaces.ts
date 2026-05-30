@@ -8,6 +8,7 @@ import {
   type PlaceDraft,
 } from '../data/storage';
 import type { HistoryEntry } from '../types';
+import { ensureSeed } from '../data/seed';
 
 export function usePlaces() {
   const [places, setPlaces] = useState<Place[]>([]);
@@ -19,7 +20,8 @@ export function usePlaces() {
   }, []);
 
   useEffect(() => {
-    void refresh();
+    // 第一次啟動時種預設地點,然後先載入
+    void ensureSeed().then(refresh);
   }, [refresh]);
 
   const add = useCallback(
