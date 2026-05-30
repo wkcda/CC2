@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# 預覽圖產生工具(非 App 本體,只用嚟生成截圖預覽)
+preview/
+scripts/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
