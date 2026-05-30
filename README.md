@@ -34,6 +34,21 @@ npm run dev      # http://localhost:5173
 npm run build    # 打包到 dist/(純靜態,可放 GitHub Pages / Netlify)
 ```
 
+## 部署上 GitHub Pages
+
+已內置自動部署:每次 push 上 `claude/couple-travel-map-site-S8gno`,GitHub Actions 就會
+build 同部署。你只需要喺 GitHub 做一次設定:
+
+1. **Settings → Pages → Build and deployment → Source** 揀 **GitHub Actions**。
+2. (免費版 Pages 需要 repo 係 **public**;repo 私密要 GitHub Pro。)
+3. 等 **Actions** 分頁嘅 workflow 跑完(綠剔),網址會係:
+   `https://<你嘅 GitHub 名>.github.io/cc2/`
+
+> 🔐 **關於私隱**:就算網址公開,你嘅相片同回憶都唔會外洩 —— 所有資料只存喺你自己部機嘅
+> 瀏覽器,陌生人入嚟只會見到一個空白 App,再加上有鎖屏。
+>
+> ⚠️ 如果改咗 repo 名,記得同步改 `vite.config.ts` 入面個 `base`(`/<repo 名>/`)。
+
 ## 技術
 
 React + Vite + TypeScript · `react-simple-maps` (d3-geo 向量地圖,無需 API key) ·
